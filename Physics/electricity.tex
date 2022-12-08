@@ -1,0 +1,121 @@
+\chapter{Electric Current}
+\section{Electricity Equations \& Utilities}
+\subsection{Ohm's Law}
+\[ V = IR \] \label{Eq_OhmsLaw}
+\begin{align}
+	V &= \text{Voltage} \left[ V \right] \\
+	I &= \text{Current} \left[ I \right] \\
+	R &= \text{Resistance} \left[ \Omega \right] 
+\end{align}
+
+\subsection{Current}
+\[ I = \frac{\Delta Q}{\Delta t} \] \label{Eq_Current}
+\begin{align}
+	I &= \text{Current} \left[ A \right] \\
+	Q &= \text{Charge} \left[ C \right] \\
+	t &= \text{Time} \left[ s \right] 
+\end{align}
+
+\subsection{Voltage}
+\[ V = \frac{E}{Q} \] \label{Eq_Voltage}
+\begin{align}
+	V &= \text{Voltage} \left[ V \right] \\
+	E &= \text{Energy} \left[ J \right]  \\
+	Q &= \text{Charge} \left[ C \right]
+\end{align}
+
+\subsection{Resistivity}
+\[\rho = \frac{RA}{L}\]
+\begin{align}
+	\rho &= \text{Resistivity} \left[ \Omega m \right] \\
+	R &= \text{Resistance} \left[ \Omega \right] \\
+	A &= \text{Cross-Sectional Area} \left[ m^2 \right] \\
+	L &= \text{Length} \left[ m \right] \\
+\end{align}
+This is a useful example of \eqref{DimensionalAnalysis}, which we could use to find the units for Resistivity.
+
+\subsection{Thermistors}
+\dfn{Thermistor}{An electrical component that changes resistance based on temperature.}
+There are 2 kinds - Positive and Negative Temperature Coefficient Thermistors. With PTCs, as temperature increases, so does resistance. With NTCs, it falls.
+
+\chapter{Direct Current Circuits}
+\section{Current \& Voltage Laws}
+\dfn{Kirchhoff's \nth{1} Law}{The sum of current into a junction is the same as the current out of a junction.}
+\dfn{Kirchhoff's \nth{2} Law}{The sum of potential gain is equal to the sum of potential lost in any closed loop.}
+
+\section{Resistance}
+As the electrons flow through the metal, the electrons hitting the atoms make the resistance, following \eqref{Eq_OhmsLaw}.
+
+Resistance depends on a number of variables:
+\begin{itemize}
+	\ii Temperature
+	\ii Material
+	\ii Length
+	\ii Thickness
+\end{itemize}
+
+\subsection{Series vs Parallel}
+\dfn{Series Resistance}{
+	The electron has to flow through both resistors, so it makes sense to add.
+	\[ R_T = R_1 + R_2 + ldots + R_n \]
+}
+\dfn{Parallel Resistance}{
+	Most current will go through the smaller resistor, but some will go through the larger resistances, and so the electron density for each path is smaller, decreasing the overall resistance compared to if they were in series.
+	\[ \frac{1}{R_T} = \frac{1}{R_1} + \frac{1}{R_2} + \ldots + \frac{1}{R_n} \]
+}
+
+\section{Superconductivity}
+Resistivity increases with temperature, and vice versa.
+However, when some materials are cooled to their critical temperature, their Resistivity drops to 0, and they become superconductors.
+
+\section{Electromotive Force \& Internal Resistance}
+\(emf \equiv \mcE \equiv \) Electromotive Force.
+\dfn{EMF}{The potential difference across the terminals of a cell when no current is flowing.}
+An ideal voltmeter has infinite resistance, and so no current flows through them. This also means that they keep resistance the same as it was before in a parallel circuit, and voltmeters have to be put in parallel. However, if we put a voltmeter with a cell, current still flows due to the Internal Resistance of the cell. We can then work out the \(emf\) of the cell:
+\[ \mcE = V_{\text{Lost in circuit}} + V_{\text{Lost in cell}} = IR + Ir = I(R+r) \]
+
+\subsection{Finding \(r\)}
+\begin{enumerate}
+	\ii Make a circuit with a cell, a variable resistor, and a voltmeter in parallel, with an ammeter in the variable resistor bit.
+	\ii As you change the resistance on the variable resistor, more/less pd will be lost over \(r\).
+	\ii Plot \(I\) on the x-axis vs \(V\) on the y-axis, and then extrapolate. The Y intercept is the EMF. The gradient then represents \(-r\).
+\end{enumerate}
+
+
+\section{Potential Dividers}
+Assuming a circuit with one battery and two resistors (\(R_1\) and \(R_2\)) in series, where \(V_\text{in}\) is the Potential Difference across the battery and \(V_1\) and \(V_2\) are the Potential Differences across \(R_1\) and \(R_2\) respectively. We can then use \eqref{Eq_OhmsLaw} for the whole circuit.
+\begin{align}
+	V_\text{in} &= I(R_1 + R_2) \to I = \frac{V_\text{in}}{R_1 + R_2} \\
+	V_1 &= IR_1 \to V_1 = \frac{V_\text{in}}{R_1+R_2}R_1 \\
+	V_2 &= IR_2 \to V_2 = \frac{V_\text{in}}{R_1 + R_2}R_2
+\end{align}
+
+\chapter{Alternating Current}
+We often use AC over DC for advantages in long-distance energy transfers. Transformers can directly trade voltage for current, and current produces heat, so we can increase the voltage and decrease the current to transfer lots of power over a long distance. However, a transformer only works on AC power.
+
+\dfn{Alternating Current}{AC is current that periodically changes direction and is measured using an Oscilloscope.}
+
+\section{Oscilloscopes}
+An oscilloscope is a graphical representation of a wave (See example \href{https://academo.org/demos/virtual-oscilloscope/}{here}).
+
+We can adjust the Volts per Division (y-gain) and the Time per Division (x-gain) to try to display 1 or more full waves.
+
+We can then measure the following:
+\begin{enumerate}
+	\ii Amplitude (Peak Voltage \eqref{PeakVoltage})
+	\ii Peak-To-Peak Voltage
+	\ii Time Period \& Frequency \eqref{TimeFrequency}
+	
+\end{enumerate}
+
+\section[Root Mean Squared]{RMS}
+Since an alternating current circuit might make it difficult to use calculations, we often use RMS instead.
+
+\dfn{RMS}{The RMS (Root Mean Squared) value of an AC supply is the value of a DC supply that would produce the same heating effect as the AC supply in the same resistor}.
+
+\begin{align}
+	V_{\text{rms}} &= \frac{V_{\text{Peak}} \label{PeakVoltage}}{\sqrt{2}} \\
+	I_{\text{rms}} &= \frac{I_{\text{Peak}}}{\sqrt{2}} \\
+	P_{\text{Average}} &= \frac{I_{\text{Peak}}}{\sqrt{2}} \\
+	f = \frac{1}{T} \label{TimeFrequency}
+\end{align}
