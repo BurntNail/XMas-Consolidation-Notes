@@ -90,7 +90,6 @@
 
 Graphs with anything to the power of \(x\) always have a y-intercept of 1, because anything to the power of 0 is equal to 1.
 
-
 \subsection{Euler's Number - \(e\)}
 \dfn{\(e\)}{
 	\(e\) is defined as having the following characteristics:
@@ -99,6 +98,9 @@ Graphs with anything to the power of \(x\) always have a y-intercept of 1, becau
 		\ii \(y = e^{kx}\), \(\differen = ke^{kx}\)
 	\end{itemize}
 }
+
+\nt{\[ \log_ex \equiv \ln{x} \]}
+
 \qs{\(y = Ae^{kx}\), and passes through \((0,6)\) and \(1,9\). Find \(A\) and \(k\)}{
 	\begin{align*}
 		6 &= Ae^0 \\
@@ -115,4 +117,106 @@ All Exponentials can be written with \(e\), which makes calculus much easier.
 
 Given \(y = Ae^{kx}\), if \(k > 0\) we get exponential growth, and if \(k < 0\) then we get exponential decay.
 
-% got up to just before 29/9 DJI before lunch
+When modelling with exponentials, \(A\) typically represents the initial population, and \(k\) the growth/decline factor.
+
+\section{Logarithm Graphs}
+
+As you might expect, logarithm graphs are just exponential graphs reflected in \(y=x\).
+
+\begin{tikzpicture}
+\begin{axis}[
+		axis lines = center,
+		ymin=-10,ymax=10,
+		xlabel = \(x\),
+		ylabel = \(f(x)\),
+	]
+	\addplot [
+		domain=-5:5,
+		samples=100,
+		color=black,
+	]
+	{e^x};
+	\addlegendentry{\(e^x\)}
+	\addplot [
+		domain=0:5,
+		samples=250,
+		color=blue,
+	]
+	{ln(x)};
+	\addlegendentry{\(\ln{x}\)}
+\end{axis}
+\end{tikzpicture}
+
+
+\section{Logs \& Non-Linear Data}
+When given non-linear data, we can use logs to extrapolate from it and find an equation. Usually, we can take logs of the \(y\) equivalent and then plot \(x\) vs \(\log{y}\).
+\qs{\(B = Ak^t\), where \(t\) represents days and \(B\) represents the population, find \(k\) and \(A\)}{
+	\begin{tabular}{rl}
+		Days & Population \\
+		\hline
+		\(1\) & \(24\) \\
+		\(2\) & \(28\) \\
+		\(3\) & \(36\) \\
+		\(4\) & \(40\) \\
+		\(5\) & \(50\) \\
+	\end{tabular}
+
+	\ex{Solving Graphically}{
+		\begin{alignat*}{3}
+			B &= A &*&& k^t\\ \\
+			y &= xm &+&& c \\
+			\log{B} &= t\log{k} &+&& A
+		\end{alignat*}
+	
+		\begin{tabular}{llr}
+			\(t\) & \(B\) &  \(\log{B}\) \\
+			\hline
+			\(1\) & \(24\) & \(1.38\) \\
+			\(2\) & \(28\) & \(1.45\) \\
+			\(3\) & \(36\) & \(1.56\) \\
+			\(4\) & \(40\) & \(1.60\) \\
+			\(5\) & \(50\) & \(1.70\) \\
+		\end{tabular}
+	
+		\begin{tikzpicture}
+		\begin{axis}[
+				axis lines = center,
+				ymin=1,
+				xlabel = \(\log{t}\),
+				ylabel = \(\log{B}\),
+				legend pos=south east,
+			]
+
+			\addplot [
+				color=black,
+				mark=square,
+			]
+			coordinates {
+				(1,1.38)(2,1.45)(3,1.56)(4,1.6)(5,1.7)
+			};
+			\addlegendentry{Raw Data}
+		
+			\addplot [
+				domain=0:5,
+				samples=100,
+				color=blue,
+			]
+			{0.08*x+1.29};
+			\addlegendentry{Approximate Line of Best Fit}
+		\end{axis}
+		\end{tikzpicture}
+	
+		From the line of best fit, we can see that the y-intercept is \(1.29\) and using non-shown calculations, we can see that the gradient is \(0.08\)
+		
+		\begin{align*}
+			1.3 &= \log{k} \\
+			k &= 10^{1.3} \\
+			k &= 19.95 \\ \\
+			0.08 &= \log{A} \\
+			A &= 10^{0.08} \\
+			A &= 1.20
+		\end{align*}
+	
+		\(k = 19.95\) and \(A = 1.20\)
+	}
+}
