@@ -1,0 +1,74 @@
+\section{Basics}
+Very similar to solving a normal equation with one caveat - every time you multiply by -1, you need to flip the sign.
+
+
+\ex{\(5 - 3x \geq 21\)}{
+	\begin{align*}
+		5 - 3x &\geq 21 \\
+		-3x &\geq 16 \\
+		3x &\leq -16 \\
+		x &\leq -\frac{16}{3}
+	\end{align*}
+}
+\ex{\(17 + x \leq 32 + 3x \leq 21 + x\)}{
+	\begin{alignat*}{2}
+		17 + x &\leq 32 + 3x &&\leq 21 + x \\
+		17 &\leq 32 + 2x &&\leq 21 \\
+		-15 &\leq 2x &&\leq -11 \\
+		-\frac{15}{2} &\leq x &&\leq -\frac{11}{2}
+	\end{alignat*}
+}
+
+\section{Set Notation}
+Whilst we can use \(\le\) and the other signs, we can also use set notation, which makes some easier, and is especially useful for quadratics.
+
+\begin{align*}
+	x > 4 &&\to&& \left\lbrace x: x < 4 \right\rbrace  &&\equiv&& x \in (4, \inf) \\
+	-15 \leq x \leq -11 &&\to&& \left\lbrace x: -15 \leq x \leq -11 \right\rbrace  &&\equiv&& x \in [-15, -11]
+\end{align*}
+
+\section{Quadratics}
+The difficulty comes with quadratics which have multiple x-solutions. We need to draw a graph, and then check which way around which we should give our answer - a single set, or a union of 2.
+\ex{\(2x^2 + 5x - 3 < 0\)}{
+	\begin{plotter}
+		\addplot [
+			domain=-5:5,
+			samples=100,
+			color=black,
+		]
+		{2*x*x + 5*x - 3};
+		\addlegendentry{\(2x^2 + 5x - 3\)}
+	\end{plotter}
+
+	\begin{align*}
+		2x^2 + 5x - 3 &< 0 \\
+		(2x - 1)(x + 3) &< 0 \\
+		-3 < x < \frac{1}{2} \\
+		\left\lbrace x: -3 < x < \frac{1}{2} \right\rbrace 
+	\end{align*}
+}
+
+\ex{\(x^2 > 10 - 3x\)}{
+	\begin{plotter}
+		\addplot [
+			domain=-10:10,
+			samples=100,
+			color=black,
+		]
+		{x*x};
+		\addlegendentry{\(x^2\)}
+		\addplot [
+			domain=-10:10,
+			samples=100,
+			color=blue,
+		]
+		{10 - 3*x};
+		\addlegendentry{\(10-3x\)}
+	\end{plotter}
+
+	\begin{align*}
+		x^2 + 3x - 10 &> 0 \\
+		(x+5)(x-2) &> 0 \\
+		\left\lbrace x: x < -5 \right\rbrace &\cup \left\lbrace x: x > 2 \right\rbrace 
+	\end{align*}
+}

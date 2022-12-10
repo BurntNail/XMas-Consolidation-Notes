@@ -1,6 +1,7 @@
 \documentclass{report}
 \usepackage[utf8]{inputenc} % Required for inputting international characters
 \usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage{polynom}
 
 \input{preamble}
 \input{macros}
@@ -18,13 +19,6 @@
 
 \tableofcontents
 \pagebreak
-
-\part{Prerequisites}
-\chapter{Polynomial Division, Factor/Remainder Theorem, Cubics}
-\input{Maths/Pure/Prereqs/PolyDivisionFactorRemainerCubics.tex}
-\chapter{Transforming \& Sketching Graphs}
-\input{Maths/Pure/Prereqs/TransformingAndSketchingGraphs.tex}
-
 
 \part{Book 1}
 
@@ -54,10 +48,18 @@
 \input{Maths/Pure/B1/12_Differentitation.tex}
 
 \chapter{Integration}
-\input{Maths/Pure/B1/12_Differentitation.tex}
+\input{Maths/Pure/B1/13_Integration.tex}
 
 \chapter{Logs \& Exponents}
 \input{Maths/Pure/B1/14_ExpLog.tex}
+
+
+\part{Other Bits}
+\setcounter{chapter}{0}
+\chapter{Transforming \& Sketching Graphs}
+\input{Maths/Pure/Prereqs/TransformingAndSketchingGraphs.tex}
+\chapter{Polynomial Division, Factor Theorem \& Cubics}
+\input{Maths/Pure/Prereqs/PolyDivisionFactorRemainerCubics.tex}
 
 
 \part{Book 2}

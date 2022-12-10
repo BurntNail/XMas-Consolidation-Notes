@@ -1,0 +1,65 @@
+\section{Polynomial Division}
+Any expression \(\frac{\func{f}}{\func{g}}\) can be expressed as \( \func{g} \rem \func{r}\). For example, \(\frac{11}{4} \equiv 2 \rem 3\).
+
+There are 2 main methods of dividing polynomials - Long Division and Synthetic. Synthetic is usually considered easier, but a question might ask for Long Division, so learn both.
+\qs{\(x^3 - 17x + 6 \quad \div \quad x - 3\)}{
+	\ex{Synthetic Division}{
+		Synthetic Division isn't very hard, but has steps you need to carefully follow. Firstly, copy all of the coefficients into the top row, and the negative of the divisor constant into the left column in the row below. For the first coefficient, copy it directly to the bottom. Then, for all of the others follow these steps:
+		\begin{enumerate}
+			\ii Multiply the result from the order above by the negative of the constant, and copy it to the middle row. 
+			\ii Add that to the original and place the result in the bottom row.
+		\end{enumerate}
+		\polyhornerscheme[x=3]{x^3 - 17x + 6}
+		\[\therefore \frac{x^3 - 17x + 6}{x - 3} = x^2 + 3x - 8 \rem -18\]
+	}
+	\ex{Long Division}{
+		Long Division involves a few main steps, which you repeat for every term of the dividend. It starts with laying out the equation in the box as you would for normal long division, and then you do the following:
+		\begin{enumerate}
+			\ii Divide the dividend term by the divisor term an order below, and add that to the result at the top
+			\ii Copy the dividend term a row below
+			\ii Multiply the next dividend term by the negative of the constant in the divisor.
+			\ii Treat what you've written down as long subtraction.
+			\ii Copy the rest of the row down into the results bit.
+		\end{enumerate}
+		Continue until you get to a lone constant, and that is the remainder
+		
+		\polylongdiv{x^3 + 0x^2 - 17x + 6}{x - 3}
+		\[\therefore \frac{x^3 - 17x + 6}{x - 3} = x^2 + 3x - 8 \rem -18\]
+	}
+}
+
+\section{Factor Theorem}
+The factor theorem is a method of solving cubic equations.
+\dfn{Factor Theorem}{
+	Given \(\func{f}\), if \(f(y)\) is a solution, then \(\left( x-y \right)\) is a factor of \(\func{f}\)
+}
+
+To solve an equation using factor theorem, usually we need to follow a few steps:
+\begin{enumerate}
+	\ii Work through factors of the constant until you find one that is a factor of the whole equation.
+	\ii Create a trial factorising function.
+	\ii Expand the faux-factorised function, and equate coefficients.
+	\ii Write a proper expanded function.
+	\ii Properly factorise.
+\end{enumerate}
+
+\qs{Given one solution is an integer, solve \(2x^3 + x^2 - 18x + 9\)}{
+	\ex{Solving with Factor Theorem}{
+		\begin{align*}
+			\func{f}  	 &= 2x^3 + x^2 - 18x - 9 \\
+			\func[1]{f}  &= 2 + 1 - 18 - 9 \neq 0 \\
+			\func[-1]{f} &= 2 + 1 + 18 - 9 \neq 0 \\
+			\func[3]{f}  &= 2*27 + 9 - 54 - 9 = 0 \\
+			\func[3]{f}  &= 0 \quad \therefore \left( x-3 \right) \text{is a factor} \\
+			\\
+			\func{f} &= \left( x-3 \right) \left( 2x^2 + bx + 3 \right) \\
+					 &= \ldots - 6x^2 + bx^2 + \ldots \\
+			b-6 	 &= 1 \\
+			b		 &= 7 \\
+			\\
+			\func{f} &= \left( x-3 \right) \left( 2x^3+7x+3 \right) \\
+					 &= \left( x-3 \right) \left( 2x+1 \right) \left( x+3 \right) \\
+			\therefore x &= -3, \frac{1}{2}, 3 
+		\end{align*}
+	}
+}

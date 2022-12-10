@@ -2,36 +2,36 @@
 \section{Electricity Equations \& Utilities}
 \subsection{Ohm's Law}
 \[ V = IR \] \label{Eq_OhmsLaw}
-\begin{align}
+\begin{align*}
 	V &= \text{Voltage} \left[ V \right] \\
 	I &= \text{Current} \left[ I \right] \\
 	R &= \text{Resistance} \left[ \Omega \right] 
-\end{align}
+\end{align*}
 
 \subsection{Current}
 \[ I = \frac{\Delta Q}{\Delta t} \] \label{Eq_Current}
-\begin{align}
+\begin{align*}
 	I &= \text{Current} \left[ A \right] \\
 	Q &= \text{Charge} \left[ C \right] \\
 	t &= \text{Time} \left[ s \right] 
-\end{align}
+\end{align*}
 
 \subsection{Voltage}
 \[ V = \frac{E}{Q} \] \label{Eq_Voltage}
-\begin{align}
+\begin{align*}
 	V &= \text{Voltage} \left[ V \right] \\
 	E &= \text{Energy} \left[ J \right]  \\
 	Q &= \text{Charge} \left[ C \right]
-\end{align}
+\end{align*}
 
 \subsection{Resistivity}
 \[\rho = \frac{RA}{L}\]
-\begin{align}
+\begin{align*}
 	\rho &= \text{Resistivity} \left[ \Omega m \right] \\
 	R &= \text{Resistance} \left[ \Omega \right] \\
 	A &= \text{Cross-Sectional Area} \left[ m^2 \right] \\
 	L &= \text{Length} \left[ m \right] \\
-\end{align}
+\end{align*}
 This is a useful example of \eqref{DimensionalAnalysis}, which we could use to find the units for Resistivity.
 
 \subsection{Thermistors}
@@ -84,11 +84,11 @@ An ideal voltmeter has infinite resistance, and so no current flows through them
 
 \section{Potential Dividers}
 Assuming a circuit with one battery and two resistors (\(R_1\) and \(R_2\)) in series, where \(V_\text{in}\) is the Potential Difference across the battery and \(V_1\) and \(V_2\) are the Potential Differences across \(R_1\) and \(R_2\) respectively. We can then use \eqref{Eq_OhmsLaw} for the whole circuit.
-\begin{align}
+\begin{align*}
 	V_\text{in} &= I(R_1 + R_2) \to I = \frac{V_\text{in}}{R_1 + R_2} \\
 	V_1 &= IR_1 \to V_1 = \frac{V_\text{in}}{R_1+R_2}R_1 \\
 	V_2 &= IR_2 \to V_2 = \frac{V_\text{in}}{R_1 + R_2}R_2
-\end{align}
+\end{align*}
 
 \chapter{Alternating Current}
 We often use AC over DC for advantages in long-distance energy transfers. Transformers can directly trade voltage for current, and current produces heat, so we can increase the voltage and decrease the current to transfer lots of power over a long distance. However, a transformer only works on AC power.
@@ -115,7 +115,7 @@ Since an alternating current circuit might make it difficult to use calculations
 
 \begin{align}
 	V_{\text{rms}} &= \frac{V_{\text{Peak}} \label{PeakVoltage}}{\sqrt{2}} \\
-	I_{\text{rms}} &= \frac{I_{\text{Peak}}}{\sqrt{2}} \\
-	P_{\text{Average}} &= \frac{I_{\text{Peak}}}{\sqrt{2}} \\
-	f = \frac{1}{T} \label{TimeFrequency}
+	I_{\text{rms}} &= \frac{I_{\text{Peak}}}{\sqrt{2}} \nonumber \\
+	P_{\text{Average}} &= \frac{I_{\text{Peak}}}{\sqrt{2}} \nonumber \\ 
+	f = \frac{1}{T} \label{TimeFrequency} 
 \end{align}

@@ -1,0 +1,185 @@
+\section{Graph Appearances}
+\subsection{Transformations}
+
+\dfn{Translation}{
+	\begin{itemize}[]
+		\ii The graph of \( f(x-a) \) is the graph of \( f(x) \) translated right by \(a\) units.
+		\ii The graph of \( f(x)+b\) is the graph of \( f(x) \) translated upwards by \(b\) units.
+	\end{itemize}
+}
+\dfn{Scaling}{
+	\nt{Never say shrink: always say stretch by a factor \( e \) where \( |e| < 1 \)}
+	\begin{itemize}[]
+		\ii The graph of \(cf(x)\) is the graph of \(f(x)\) stretched vertically by a factor of \(c\).
+		\ii The graph of \(f(dx)\) is the graph of \(f(x)\) stretched horizontally by a factor of \(d^{-1}\).
+	\end{itemize}
+}
+\ex{Basic Graph Transformations}{
+	\begin{plotter}
+		\addplot [
+		domain=-5:5,
+		samples=100,
+		color=black,
+		]
+		{x^2};
+		\addlegendentry{\(x^2\)}
+	\end{plotter}
+	
+	\hbox{
+		\begin{plotter}
+			\addplot [
+			domain=-5:5,
+			samples=100,
+			color=red,
+			]
+			{(x-2)^2};
+			\addlegendentry{\((x-2)^2\)}
+			
+			\addplot [
+			domain=-5:5,
+			samples=100,
+			color=orange,
+			]
+			{(x)^2+10};
+			\addlegendentry{\((x)^2+10\)}
+		\end{plotter}
+		
+		\begin{plotter}
+			\addplot [
+			domain=-5:5,
+			samples=100,
+			color=blue,
+			]
+			{3*(x^2)};
+			\addlegendentry{\(3(x^2)\)}
+			
+			\addplot [
+			domain=-5:5,
+			samples=100,
+			color=purple,
+			]
+			{(x/2)^2};
+			\addlegendentry{\((0.5x)^2\)}
+		\end{plotter}
+	}
+}
+
+\subsection{Combining Transformations}
+
+\qs{Combining Transformations}{
+	\[
+	y = f(-2x)
+	\]
+	
+	This is obtained from \(f(x)\) by doing the following:
+	\begin{enumerate}
+		\item Flip horizontally.
+		\item Stretch horizontally by a factor of \(0.5\).
+	\end{enumerate}
+}
+\qs{Combining Transformations}{
+	\[
+	y = cf(\frac{1}{a} * (x-b)) + d
+	\]
+	
+	This is obtained from \(f(x)\) by doing the following:
+	\begin{enumerate}
+		\item Shift to the right \(b\) units.
+		\item Stretch horizontally by a factor of \(a\).
+		\item Stretch vertically by a factor of \(c\).
+		\item Shift upwards by \(d\) units.
+	\end{enumerate}
+}
+
+
+\pagebreak
+\subsection{Graph Shapes}
+\ex{Basic Power Graphs}{
+	\hbox {
+		\plotbasic[blue]{x}{\(x\)}
+		\plotbasic[red]{x^2}{\(x^2\)}
+	}
+	\hbox {
+		\plotbasic[blue]{x^3}{\(x^3\)}
+		\plotbasic[red]{x^4}{\(x^4\)}
+	}
+	\hbox {
+		\plotbasic[blue]{1/x}{\(x^{-1}\)}
+		\plotbasic[red]{-1/x}{\({-x}^{-1}\)}
+	}
+}
+
+These are all of the basic graph shapes, and can be transformed just like \(y = x^2\) above.
+
+\pagebreak
+\section{Solving Using Graphs}
+Find one or more \(y =\ldots \) equation, plot it, find the x position of any intercepts. If only one equation, find intersections with \(y = 0\).
+
+\qs{Solving \(5 = 6x + 8\)}{
+	\begin{align}
+		5  & = 6x + 8 \\
+		-3 & = 6x     \\
+	\end{align}
+	
+	\ex{Using Algebra}{
+		\begin{align}
+			6x & = -3           \\
+			x  & = \frac{6}{-3} \\
+			x  & = -\frac{1}{2}
+		\end{align}
+	}
+	
+	\ex{Using a Graph}{
+		\[ y = 6x + 3  \]
+		\plotbasic{6*x+3}{\(6x + 3 \)}
+		Intersects at \(-\frac{1}{2}\).
+	}
+	
+	Whilst this might seem less useful for basic equations, this can become much more useful for more complicated questions like below.
+}
+
+\qs{Finding the intersection of  \(y = 3x^2 -2x - 21\) and \(y = (x-3)(x+3)\)}{
+	\ex{Using Algebra}{
+		\begin{enumerate}
+			\ii Set equal to each other
+			\ii Simplify
+			\ii Check how many roots exist using the discriminant
+			\ii Work out all roots (possibly using factor theorem which can take a while)
+		\end{enumerate}
+		\begin{align}
+			3x^2 -2x - 21  & = (x-3)(x+3) \\
+			3x^2 -2x - 21  & = x^2 - 9    \\
+			2x^2 -2x - 12  & = 0          \\
+			x^2 - x - 6    & = 0          \\
+			(x - 3)(x + 2) & = 0          \\
+			x              & = 3, -2
+		\end{align}
+	}
+	
+	\ex{Using a Graph}{
+		\begin{enumerate}
+			\ii Plot
+			\ii Check intersections.
+		\end{enumerate}
+		
+		\begin{plotter}
+			\addplot [
+			domain=-7.5:7.5,
+			samples=100,
+			color=black,
+			]
+			{3*x^2 - 2*x - 21};
+			\addlegendentry{\(3x^2 -2x -21\)}
+			
+			\addplot [
+			domain=-7.5:7.5,
+			samples=100,
+			color=black,
+			]
+			{(x-3)*(x+3)};
+			\addlegendentry{\((x+3)(x-3)\)}
+		\end{plotter}
+		
+		Intersects at \(x = -2, 3\).
+	}
+}
