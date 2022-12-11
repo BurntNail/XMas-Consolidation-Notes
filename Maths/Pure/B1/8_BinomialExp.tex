@@ -1,0 +1,80 @@
+\section{Positive Integers}
+
+\dfn{\(\acb{n}{r} \)}{
+	\[ \acb{n}{r} = \frac{n!}{r!(n-r)!} \]
+	\(n\) \textit{choose} \(r\) gives the number of different ways you can choose \(r\) from a set of \(n\) things.
+}
+\dfn{Binomial Expansion}{
+	\[ (a+b)^n = \acb{n}{0}a^nb^0 +\acb{n}{1}a^{n-1}b^1 + \acb{n}{2}a^{n-2}b^2 +\ldots + \acb{n}{n-1}a^1b^{n-1} + \acb{n}{n}a^0b^n \]
+}
+\ex{\(\left( 2-x^2 \right)^5\)}{
+	\begin{align*}
+		\left( 2-x^2 \right)^5 &= \acb{5}{0}\left( -x^2 \right)^5(2)^0 + \acb{5}{1}\left( -x^2 \right)^4(2)^1 \\ 
+							   &+ \acb{5}{2}\left( -x^2 \right)^3(2)^2 + \acb{5}{3}\left( -x^2 \right)^2(2)^3 \\
+							   &+ \acb{5}{4}\left( -x^2 \right)^1(2)^4 + \acb{5}{5}\left( -x^2 \right)^0(2)^5 \\
+							   &= -x^{10} + (5)(2)(x^8) + (10)(4)(-x^6) + (10)(8)(x^4) + (5)(16)(-x^2) + 32 \\
+							   &= -x^{10} + 10x^8 - 40x^6 + 80x^4 - 80x^2 + 32
+	\end{align*}
+}
+
+\dfn{Low-Level expansions of \(\acb{n}{x}\)}{
+	\begin{align*}
+		\acb{n}{n} &\equiv 1 \\
+		\acb{n}{1} &\equiv n \\
+		\acb{n}{2} &\equiv \frac{n(n-1)}{2} \\
+		\acb{n}{3} &\equiv \frac{n(n-1)(n-2)}{6}
+	\end{align*}
+}
+
+\qs{Given \((3 + x)^n\), and that the coefficient of \(x^2\) is half that of \(x\), find \(n\)}{
+	\begin{align*}
+		x^2 \to &= \acb{n}{2}(3)^{n-2}(x)^2 \\
+				&= \frac{(n)(n-1)(3)^{n-2}}{2} \\
+		x   \to &= \acb{n}{1}(3)^{n-1}(x) \\
+				&= n3^{n-1}
+	\end{align*}
+	\begin{align*}
+		\frac{n(n-1)3^{n-2}}{2} &= 2n3^{n-1} \\
+		n(n-1)3^{n-2} 			&= 4n3^{n-1} \\
+		n(n-1) 					&= 4n*3 \\
+		n^2-n					&= 12n \\
+		n^2 - 13n				&= 0 \\
+		n						&= 0, 13
+	\end{align*}
+}
+
+\section{Binomial Estimation}
+Find a formula, often given in the question, then plug in values.
+\qs{Estimate \(0.975^{10}\) to 4dp}{
+	\ex{Find the first 4 terms in ascending powers of x of \(\left( 1 - \frac{x}{4} \right)^{10}\)}{
+		\nt{\(x^0\) is still a power of \(x\)}
+		\begin{align*}
+			\left( 1 - \frac{x}{4} \right)^{10} &= \acb{10}{0}(1)^10 + \acb{10}{1}(1)^9\left( -\frac{x}{4} \right) + \acb{10}{2}(1)^8\left( -\frac{x}{4} \right)^2 + \acb{10}{3}(1)^7\left( -\frac{x}{4} \right)^3 \\
+			&= 1 - \frac{10}{4}x + \frac{45}{16}x^2 - \frac{120}{64}x^3 \\
+			&= 1 - \frac{5}{2}x + \frac{45}{16}x^2 - \frac{15}{8}x^3
+		\end{align*}	
+	}
+	\ex{Estimate \(0.975^{10}\) to 4dp}{
+		\begin{align*}
+			1 - \frac{x}{4} &= 0.975 \\
+			x				&= 0.1 \\ \\
+			0.975^{10} 		&\approx 1 - 0.1\frac{5}{2} + 0.1^2\frac{45}{16} - 0.1^3\frac{15}{8} \\
+			&\approx 0.77625 \\
+			&\approx 0.7763
+		\end{align*}
+	}
+}
+
+\section{Fractions}
+\dfn{General Binomial Expansion}{
+	\begin{align*}
+		(1 + x)^n &= 1 + nx + \frac{n(n-1)}{2!}x^2 + \frac{n(n-1)(n-2)}{3!}x^3 \\
+				  &+ \frac{n(n-1)\ldots(n-r+1)}{r!}x^r
+	\end{align*}
+	Valid for \(\left| x \right| < 1\).
+}
+\qs{\((1-2x)^\frac{1}{2}\), where \(\left| x \right| < \frac{1}{2}\), find ascending powers of \(x\) up to and including \(x^3\)}{
+	\begin{align*}
+		&= 1 + \frac{1}{2}x + \frac{\frac{1}{2}\left( \frac{1}{2} - 1 \right)}{2}x^2
+	\end{align*}
+}

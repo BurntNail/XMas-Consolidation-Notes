@@ -1,0 +1,134 @@
+\dfn{\(a\) and \(d\) notation} {
+	\begin{tabular}{rl}
+		Symbol  & Meaning \\
+		\hline
+		\(U_n\) & \(n\)\textsuperscript{th} term \\
+		\(S_n\) & Sum of terms up to and including \(U_n\) \\
+		\(a\) & First Term (AKA \(U_1\)) \\
+		\(d\) & Common Difference \\
+		\(r\) & Common Factor \\
+	\end{tabular}
+}
+\dfn{Sigma Notation}{
+	\[ \sum_{r=1}^{10} U_r = U_1 + U_2 + \ldots + U_{10} = S_{10} \]
+}
+
+\section{Arithmetic Series}
+\subsection{\(U_n\)}
+\dfn{Term Formula}{
+	\[U_n = a + (n-1)d\]
+}
+
+\qs{\(U_5 = 17\), \(U_4 = 3\), Find \(U_n\)}{
+	\begin{align*}
+		17 &= a + 4d \\
+		3 &= a + 8d \\ \\
+		& \text{Solve Simultaneous Equations} \\
+		a &= 31 \\
+		d &= -\frac{7}{2} \\ \\
+		U_n &= 31 +  \left( n-1 \right)  \left( -\frac{7}{2} \right) \\
+		&= -\frac{7}{2}n + 34\frac{1}{2}
+	\end{align*}
+}
+
+\subsection{\(S_n\)}
+\dfn{Sum Formula}{
+	\begin{align*}
+		S_n &= \frac{n}{2}\left( \text{First} - \text{Last} \right) \\
+		& \therefore \\
+		S_n &= \frac{n}{2}\left( 2a + (n-1)d \right)
+	\end{align*}
+}
+
+\qs{\( \sum_{n=1}^{20}5n-3 \)}{
+	\begin{align*}
+		\sum_{n=1}^{20}5n-3 &= \frac{n}{2}\left( 2a + (n-1)d \right) \\
+		&= 10(4+19*5) \\
+		&= 990
+	\end{align*}
+}
+
+
+\section{Geometric Sequences}
+\subsection{\(U_n\)}
+\dfn{Term Formula}{\[U_n = ar^{n-1}\]}
+
+\qs{Given terms \(3, x, x+6\), find \(U_{10}\)}{
+	\begin{align*}
+		\frac{x}{3} &= \frac{x+6}{x} \\
+		x^2 &= 3x + 18 \\
+		0 &= x^2 - 3x - 18 \\
+		0 &= (x - 6)(x+3) \\
+		x &= 6,-3 \\
+	\end{align*}
+
+	\begin{multicols}{2}
+	\noindent
+	\begin{align*}
+		x &= 6 \\
+		U &= 3,6,12 \\
+		(a,r) &= (3,2) \\
+		U_n &= 3*2^{n-1} \\
+		U_{10} &= 3*2^9 \\
+		&= 136
+	\end{align*}
+	\columnbreak
+	\begin{align*}
+		x &= -3 \\
+		U &= 3,-3,3 \\
+		(a,r) &= (3,-1) \\
+		U_n &= 3*-1^{n-1} \\
+		U_{10} &= 3*2^9 \\
+		&= -3
+	\end{align*}
+	\end{multicols}
+
+	\[\therefore x = -3, 136\]
+}
+\qs{Given terms \(2,6,18\), find \(n\) where \(U_n > 500,000\)}{
+	\begin{align*}
+		(a,r) &= (2,3) \\
+		U_n &= 2 * 3^{n-1} \\
+		2 * 3^{n-1} &> 500000 \\
+		3^{n-1} &> 250000 \\
+		n &> \log(250000)  1\\
+		n &> 12.3 \\
+		n &= 13 \\
+	\end{align*}
+}
+
+
+
+\subsection{\(S_n\)}
+\dfn{Sum Formula}{\[ S_n = \frac{a\left( 1-r^n \right) }{1-r} \]}
+
+\qs{\(1024 - 512 + 256 - 128 + \ldots + 1 = x\), find \(x\)}{
+	\begin{align*}
+		(a, r) &= (1024, -\frac{1}{2}) \\
+		n &=\log_2(1024) + 1 \\
+		&= 11 \\
+		S_n &= a\frac{1-r^n}{1-4} \\
+		&= 1024 \frac{1+\frac{1}{2}^{11}}{1+\frac{1}{2}} \\
+		&= 683
+	\end{align*}
+}
+
+\subsection{Geometric Sequences to Infinity}
+\dfn{Sum to Infinity}{
+	If \(U_n = ar^n\), and \(\left| r \right|  < 1\), then \(S_\infty = \frac{a}{1-r} \).
+}
+\dfn{Convergent vs Divergent}{
+	Given \(U_n = a + (n-1)d\)
+	\begin{alignat*}{2}
+	\limit{U_n}{\infty} & d > 0 & \text{Tends to } \infty\\
+				   		  & d < 0 & \text{Tends to } -\infty\\
+	\limit{S_n}{\infty}    & d > 0 & \text{Tends to } \infty\\
+						  & d < 0 & \text{Tends to } -\infty\\
+	\end{alignat*}
+}
+
+
+\section{Recurrence Relations}
+\dfn{Recurrence Relations}{
+	A recurrence relation is a term-to-term rule for a sequence denoted by \(U_{n+1} = \func[U_n]{f}\), with a value given for \(U_1\)
+}
